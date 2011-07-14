@@ -16,6 +16,7 @@ alias who='command who -ar -pld'                        # who command pimped
 alias pwd='command pwd -LP'                             # pwd
 alias stat='command stat -x'
 alias mvv='command mv -i -v'
+alias tl='task long'
 
 # Functions #
 

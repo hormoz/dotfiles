@@ -9,7 +9,7 @@ alias diff='diff -up'                                   # compare files line by 
 alias du='command du -kh'                               # estimating file space usage of files/folders
 alias h='history'                                       # last 10 commandments
 alias la='command ls -Al'                               # ls -la alt.
-alias lk='command ls -lASr --color=auto'                # ls -la sorted by file type
+alias l='command ls -laGh'
 alias path='echo -e ${PATH//:/\\n}'                     # paths
 alias vim='command vim --noplugin'                      # good-oldfashion vim
 alias who='command who -ar -pld'                        # who command pimped
@@ -17,6 +17,10 @@ alias pwd='command pwd -LP'                             # pwd
 alias stat='command stat -x'
 alias mvv='command mv -i -v'
 alias tl='task long'
+alias tu='command top -o cpu'                           # processes in sorted by cpu usage, desc.
+alias tm='command top -o vsize'                         # processes in sorted by memory` usage, desc.
+alias gg='git commit -am'
+
 
 # Functions #
 

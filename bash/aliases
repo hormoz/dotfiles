@@ -1,0 +1,127 @@
+# Aliases #
+
+alias trash="rm -rf /Users/Hormoz/.Trash/*"             # put the local garbage out plz
+alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"    # fire up vlc within terminal
+alias chmod='command chmod -c'                          # chmod verbose mode
+alias cpr='command cp -rpv'                             # copy command done right
+alias df='command df -kTh'                              # reports file system disk space usage
+alias diff='diff -up'                                   # compare files line by line
+alias du='command du -kh'                               # estimating file space usage of files/folders
+alias h='history'                                       # last 10 commandments
+alias la='command ls -Al'                               # ls -la alt.
+alias lk='command ls -lASr --color=auto'                # ls -la sorted by file type
+alias path='echo -e ${PATH//:/\\n}'                     # paths
+alias vim='command vim --noplugin'                      # good-oldfashion vim
+alias who='command who -ar -pld'                        # who command pimped
+alias pwd='command pwd -LP'                             # pwd
+alias stat='command stat -x'
+alias mvv='command mv -i -v'
+
+# Functions #
+
+function hori () #@ USAGE: Connects to hormoz.ws via sshfs
+{
+  case $1 in
+  "") cd ~/hormoz/www.hormoz.ws/web/content;;
+  -h) printf "\nOptions Available:\n mount: mount the website\n -c: copies file/dir to content folder on the server\n  w: goes to the nanoc dir of website\n -o: opens the current dir";;
+  mount) cd ~/Sites && mkdir -p hormoz && sshfs ftp3.ftptoyoursite.com: hormoz && cd hormoz;;
+  -c) cp -i -p -R -v $2 ~/hormoz/www.hormoz.ws/web/content/;;
+  w) cd ~/dropbox/hormoz.ws;;
+  -o) open .;;
+  esac
+}
+
+ahelp ()
+{
+    unset -v ahelp;
+    [[ "$#" -gt "0" ]] && [[ "$1" == "-h" || "$1" == "--h" || "$1" == "--help" || "$1" == "-help" || "$1" == "-?" ]] && ahelp="yes"
+}
+
+ahave ()
+{
+    unset -v ahave;
+    command command type $1 >&$N6 && ahave="yes" || return 1
+}
+
+ext ()          # beat it winrar :P
+{
+    [[ "$#" -gt "0" && $1 == *-h* ]] && ahelp $1 && echo "Usage: $FUNCNAME" && return 2;
+    until [[ -z "$1" ]]; do
+        if [[ -f "$1" ]]; then
+            pm "Extracting $1 ...";
+            case $1 in
+                *.tar.bz2)
+                    tar xjf $1
+                ;;
+                *.tar.gz)
+                    tar xzf $1
+                ;;
+                *.tar)
+                    tar xf $1
+                ;;
+                *.tbz2)
+                    tar xjf $1
+                ;;
+                *.tgz)
+                    tar xzf $1
+                ;;
+                *.bz2)
+                    bunzip2 $1
+                ;;
+                *.rar)
+                    unrar x $1
+                ;;
+                *.gz)
+                    gunzip $1
+                ;;
+                *.zip)
+                    unzip $1
+                ;;
+                *.Z)
+                    uncompress $1
+                ;;
+                *.7z)
+                    7z x $1
+                ;;
+                *)
+                    pm "Don't know how to extract '$1'"
+                ;;
+            esac;
+        else
+            pm "'$1' is not a valid file";
+        fi;
+        shift;
+    done
+}
+
+function s_err ()
+    {
+        echo '';
+        local s;
+        echo -en "\n [ ${1:-Press any key to continue} ]\n";
+        read -n 1 s
+    }
+
+function s_install ()
+    {
+        ./configure --help;
+        ./configure --prefix=/usr/local "$*" && make -j3 && sudo make install || s_err;
+        echo -en "\a"
+    }
+
+weather ()
+    {
+    ahave lynx || return;
+    local city weather=$HOME/.weather;
+    echo -e "${CC[3]}";
+    local res=`pkill -9 -f 15m &>$N6 || echo -n`;
+    [[ -r $weather ]] && cat $weather && ( ( sleep 15m && command rm $HOME/.weather >&$N6 ) & );
+    [[ ! -r $weather ]] && ( ( ( city=`lynx -dump http://api.hostip.info/get_html.php|sed -e '/^City/!d' -e 's/City: \([^,]*\), \(.*\)/\1+\2/g'` && lynx -dump "http://www.google.com/search?hl=en&q=weather+${city}" | sed -n '/Weather for/,/Search Res/p' | tr -d '\260' | sed -e '/iGoogle/d' -e 's/^[ \t]*//;s/[ \t]*$//' | sed '$d' | head -n 6 >$weather ) &  >&/dev/null ) );
+    echo -e $R
+    }
+
+# Load Mysql Function
+alias mysql=/usr/local/mysql/bin/mysql
+alias mysqladmin=/usr/local/mysql/bin/mysqladmin
+
+

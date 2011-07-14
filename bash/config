@@ -1,0 +1,15 @@
+# Prompt #
+
+txtred='\e[0;31m' # Red
+txtpur='\e[0;35m' # Purple
+bldgrn='\e[1;32m' # Green
+txtrst='\e[0m'    # Text Reset
+
+print_before_the_prompt () {
+    printf "\n $txtred%s: $bldgrn%s $txtpur%s\n$txtrst" "$USER" "$PWD" "$(vcprompt)"
+}
+
+PROMPT_COMMAND=print_before_the_prompt
+PS1='->'
+
+

@@ -1,0 +1,4 @@
+export EDITOR='vim'
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH:$HOME/bin
+source $HOME/bin/bashmarks.sh
+

@@ -24,6 +24,7 @@ alias gg='git commit -am'
 alias vu='vagrant up'
 alias vs='vagrant ssh'
 alias back='cd -'
+alias ta='task add'
 
 
 # Functions #

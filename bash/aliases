@@ -23,6 +23,7 @@ alias tm='command top -o vsize'                         # processes in sorted by
 alias gg='git commit -am'
 alias vu='vagrant up'
 alias vs='vagrant ssh'
+alias back='cd -'
 
 
 # Functions #

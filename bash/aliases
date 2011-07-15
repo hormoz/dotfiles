@@ -21,6 +21,7 @@ alias tl='task long'
 alias tu='command top -o cpu'                           # processes in sorted by cpu usage, desc.
 alias tm='command top -o vsize'                         # processes in sorted by memory` usage, desc.
 alias gg='git commit -am'
+alias vu='vagrant up'
 
 
 # Functions #

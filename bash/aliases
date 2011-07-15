@@ -25,6 +25,7 @@ alias vu='vagrant up'
 alias vs='vagrant ssh'
 alias back='cd -'
 alias ta='task add'
+alias env='printenv | less'
 
 
 # Functions #

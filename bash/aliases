@@ -1,5 +1,7 @@
 # Aliases #
 
+. $HOME/bin/dotfiles/zsh/aliases                        # sourcing zsh aliases
+alias reload='. ~/.bash_profile'                        # reload the the shell
 alias trash="rm -rf /Users/Hormoz/.Trash/*"             # put the local garbage out plz
 alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"    # fire up vlc within terminal
 alias chmod='command chmod -c'                          # chmod verbose mode
@@ -8,8 +10,7 @@ alias df='command df -kTh'                              # reports file system di
 alias diff='diff -up'                                   # compare files line by line
 alias du='command du -kh'                               # estimating file space usage of files/folders
 alias h='history'                                       # last 10 commandments
-alias la='command ls -Al'                               # ls -la alt.
-alias l='command ls -laGh'
+alias l='command ls -laGh'                              # ls -la alt.
 alias path='echo -e ${PATH//:/\\n}'                     # paths
 alias vim='command vim --noplugin'                      # good-oldfashion vim
 alias who='command who -ar -pld'                        # who command pimped
@@ -23,6 +24,9 @@ alias gg='git commit -am'
 
 
 # Functions #
+
+# changing directory to code project
+function c { cd ~/code/$1; }
 
 function hori () #@ USAGE: Connects to hormoz.ws via sshfs
 {

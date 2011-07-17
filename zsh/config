@@ -2,7 +2,8 @@ autoload -U colors
 colors
 PROMPT='
 %~ %{$fg_bold[black]%}$(vcprompt)
-→ %{$reset_color%}'
+%# %{$reset_color%}'
+RPS1=''
 
 fpath=(~/bin/dotfiles/zsh/functions $fpath)
 

@@ -1,7 +1,6 @@
 # Aliases #
 
-. $HOME/bin/dotfiles/zsh/aliases                        # sourcing zsh aliases
-alias reload='. ~/.bash_profile'                        # reload the the shell
+alias reload='. ~/.bashrc'                              # reload the the shell
 alias trash="rm -rf /Users/Hormoz/.Trash/*"             # put the local garbage out plz
 alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"    # fire up vlc within terminal
 alias chmod='command chmod -c'                          # chmod verbose mode
@@ -12,7 +11,6 @@ alias du='command du -kh'                               # estimating file space 
 alias h='history'                                       # last 10 commandments
 alias l='command ls -laGh'                              # ls -la alt.
 alias path='echo -e ${PATH//:/\\n}'                     # paths
-alias vim='command vim --noplugin'                      # good-oldfashion vim
 alias who='command who -ar -pld'                        # who command pimped
 alias pwd='command pwd -LP'                             # pwd
 alias stat='command stat -x'
@@ -26,6 +24,8 @@ alias vs='vagrant ssh'
 alias back='cd -'
 alias ta='task add'
 alias env='printenv | less'
+alias mvim='sudo mvim'
+alias vim='sudo vim -N'
 
 
 # Functions #

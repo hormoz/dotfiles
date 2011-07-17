@@ -1,33 +1,15 @@
-# cd
-alias ..='cd ..'
-
-# ls
-alias ls="ls -F"
-alias l="ls -lAh"
-alias ll="ls -l"
-alias la='ls -A'
-
-# git
-alias gl='git pull'
-alias gp='git push'
-alias gd='git diff'
-alias gc='git commit'
-alias gca='git commit -a'
-alias gco='git checkout'
-alias gb='git branch'
-alias gs='git status'
-alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
-alias changelog='git log `git log -1 --format=%H -- CHANGELOG*`..; cat CHANGELOG*'
-
-# rails
-alias sc='script/console'
-alias ss='script/server'
-alias sg='script/generate'
-alias a='autotest -rails'
-alias tlog='tail -f log/development.log'
-alias scaffold='script/generate nifty_scaffold'
-alias migrate='rake db:migrate db:test:clone'
-alias rst='touch tmp/restart.txt'
-
-# commands starting with % for pasting from web
-alias %=' '
+alias reload='. ~/.bashrc'                              # reload the the shell
+alias trash="rm -rf /Users/Hormoz/.Trash/*"             # put the local garbage out plz
+alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"    # fire up vlc within terminal
+alias chmod='command chmod -c'                          # chmod verbose mode
+alias l='command ls -laGh'                              # ls -la alt.
+alias path='echo -e ${PATH//:/\\n}'                     # paths
+alias pwd='command pwd -LP'                             # pwd
+alias mvv='command mv -i -v'
+alias tl='task long'
+alias tu='command top -o cpu'                           # processes in sorted by cpu usage, desc.
+alias tm='command top -o vsize'                         # processes in sorted by memory` usage, desc.
+alias gg='git commit -am'
+alias vu='vagrant up'
+alias vs='vagrant ssh'
+alias ta='task add'

@@ -1,15 +1,22 @@
-alias reload='. ~/.bashrc'                              # reload the the shell
-alias trash="rm -rf /Users/Hormoz/.Trash/*"             # put the local garbage out plz
-alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"    # fire up vlc within terminal
-alias chmod='command chmod -c'                          # chmod verbose mode
+# Shell Commands
 alias l='command ls -laGh'                              # ls -la alt.
 alias path='echo -e ${PATH//:/\\n}'                     # paths
 alias pwd='command pwd -LP'                             # pwd
 alias mvv='command mv -i -v'
-alias tl='task long'
 alias tu='command top -o cpu'                           # processes in sorted by cpu usage, desc.
-alias tm='command top -o vsize'                         # processes in sorted by memory` usage, desc.
-alias gg='git commit -am'
+
+# TaskWarrior
+alias ta='task add'
+alias tm='task minimal'
+alias tl='task long'
+
+# Vagrant
 alias vu='vagrant up'
 alias vs='vagrant ssh'
-alias ta='task add'
+
+# Git
+alias gg='git commit -am'
+
+# Misc
+alias trash="rm -rf /Users/Hormoz/.Trash/*"             # put the local garbage out plz
+alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"    # fire up vlc within terminal

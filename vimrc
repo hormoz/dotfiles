@@ -2,16 +2,17 @@
 set nocompatible
 
 set number
+set relativenumber
 set ruler
 syntax on
 
 " Display incomplete commands.
-"set showcmd
+set showcmd
 
 " Display the mode you're in.
 set showmode
 
-" Handle multiple buffers better.
+" Switch between buffers without saving
 set hidden
 
 " Enhanced command line completion
@@ -82,6 +83,20 @@ nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>
 
 nmap <space> :
 
+"moving between tabs firefox style
+nmap <C-S-]> gt
+nmap <C-S-[> gT
+nmap <C-1> 1gt
+nmap <C-2> 2gt
+nmap <C-3> 3gt
+nmap <C-4> 4gt
+nmap <C-5> 5gt
+nmap <C-6> 6gt
+nmap <C-7> 7gt
+nmap <C-8> 8gt
+nmap <C-9> 9gt
+nmap <C-0> :tablast<CR>
+
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
 
@@ -94,3 +109,17 @@ endif
 
 " Map escape to ,m
 imap ,m <esc>
+
+" Enable code folding
+set foldenable
+
+" Shortcut to fold tags with <leader> + ft
+nnoremap <leader>ft Vatzf
+
+" http://vim.wikia.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
+:set completeopt=longest,menuone
+:inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'

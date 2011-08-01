@@ -53,7 +53,6 @@ nmap <C-0> :tablast<CR>
 " Map escape to ,m
 imap jj <esc>
 
-
 " Enable code folding
 set foldenable
 
@@ -64,3 +63,6 @@ inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
   \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+" Window dimensions.
+set lines=25 columns=100
